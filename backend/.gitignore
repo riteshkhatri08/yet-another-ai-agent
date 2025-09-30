@@ -237,3 +237,4 @@ logs/
 temp/
 *.tmp
 *.bak
+*.DS_Store

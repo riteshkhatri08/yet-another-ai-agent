@@ -7,7 +7,14 @@ authors = [
     { name = "riteshkhatri08", email = "riteshkhatri1512@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi>=0.118.0",
+    "pydantic>=2.11.9",
+    "pydantic-settings>=2.11.0",
+    "pyyaml>=6.0.0",
+    "uvicorn>=0.37.0",
+    "websockets>=15.0.1",
+]
 
 [project.scripts]
 agent-backend = "agent_backend:main"
