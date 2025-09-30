@@ -1,0 +1,17 @@
+[project]
+name = "agent-backend"
+version = "0.1.0"
+description = "Backend for an ai agent"
+readme = "README.md"
+authors = [
+    { name = "riteshkhatri08", email = "riteshkhatri1512@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+agent-backend = "agent_backend:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
