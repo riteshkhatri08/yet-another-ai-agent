@@ -7,6 +7,7 @@ export default function Chat() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const scrollRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -20,6 +21,11 @@ export default function Chat() {
     const userMsg = { role: 'user', content: input };
     setMessages(m => [...m, userMsg]);
     setInput('');
+    // Immediately refocus input so user can continue typing while model streams
+    if (inputRef.current) {
+      // Use requestAnimationFrame to ensure React state update cycle doesn't steal focus
+      requestAnimationFrame(() => inputRef.current?.focus());
+    }
     setLoading(true);
     setError(null);
 
@@ -59,10 +65,11 @@ export default function Chat() {
       </div>
       <form className="chat__form" onSubmit={handleSend}>
         <input
+          ref={inputRef}
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Type your message"
-          disabled={loading}
+          // Keep enabled to preserve focus; rely on button disable to prevent duplicate sends
         />
         <button type="submit" disabled={loading || !input.trim()} className="btn btn--primary">Send</button>
       </form>
