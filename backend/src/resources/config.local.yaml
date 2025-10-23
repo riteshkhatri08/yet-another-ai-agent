@@ -1,0 +1,6 @@
+llm:
+  host: "http://localhost:1234"
+  model: "default"
+  max_tokens: 512
+  timeout_seconds: 120
+  debug: false
