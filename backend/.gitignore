@@ -238,3 +238,6 @@ temp/
 *.tmp
 *.bak
 *.DS_Store
+uv.lock
+!/README.md
+!/.env.example
